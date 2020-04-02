@@ -1,23 +1,42 @@
 <html>
 	<head>
-		<script src="../dist/vue-webcomponent.umd.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--		<script src="../dist/vue-webcomponent.esm.js"></script>-->
 	</head>
 	<body>
-		<!-- define template: -->
-		<template id="todo-list">
-			<span>Write a text:</span>
-			<input type="text" v-model="input">
-			<h1>{{input}}</h1>
-		</template>
+		<div id="app">
+			<todo-list></todo-list>
+		</div>
 
-		<!-- use it: -->
-		<wv-todo-list id="render-list"></wv-todo-list>
-		<script>
-			window.params = {
-				input: ""
-			};
-			window.vueWc.define(document.querySelector("#todo-list"));
-			window.instance = window.vueWc.render(document.querySelector("#render-list"), window.params);
+		<script type="module">
+			import { TodoList } from "../dist/vue-webcomponent.esm";
+
+			console.log(TodoList);
+			// Vue.use(TodoList);
+
+			new Vue({
+				el: "#app",
+				components: {"todo-list": TodoList}
+			})
+
 		</script>
+		<!-- define template: -->
+<!--		<template id="todo-list">-->
+<!--			<span>Write a text:</span>-->
+<!--			<input type="text" v-model="input">-->
+<!--			<h1>{{input}}</h1>-->
+<!--		</template>-->
+
+<!--		&lt;!&ndash; use it: &ndash;&gt;-->
+<!--		<wv-todo-list id="render-list"></wv-todo-list>-->
+<!--		<script type="module">-->
+<!--			import * as wccomp from '../dist/vue-webcomponent.esm'-->
+<!--			console.log(wccomp);-->
+<!--			window.params = {-->
+<!--				input: ""-->
+<!--			};-->
+<!--			wccomp.define(document.querySelector("#todo-list"));-->
+<!--			window.instance = wccomp.render(document.querySelector("#render-list"), window.params);-->
+<!--		</script>-->
 	</body>
 </html>

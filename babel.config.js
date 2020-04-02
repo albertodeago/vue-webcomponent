@@ -2,7 +2,7 @@ module.exports = {
 	"env": {
 		"test": {},
 		"development": {
-			"plugins": [],
+			"plugins": ["istanbul"],
 			"presets": [
 				[
 					"@babel/preset-env",

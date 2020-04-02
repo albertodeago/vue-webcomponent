@@ -3,7 +3,6 @@ node_modules
 workspace.xml
 npm-debug.log
 build/dev-server.json
-dist
 coverage
 testCoverage
 toDelete
